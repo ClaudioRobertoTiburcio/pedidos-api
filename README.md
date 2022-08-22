@@ -28,7 +28,7 @@ Also make sure that you have jdk 8 installed. After that, just pull the project 
 
 <h2>Endpoints</h2>
 <pre>
- <h3>Put Requests (Read and List)</h3>
+ <h3>Get Requests (Read and List)</h3>
      /api/items
      /api/items/{itemId}
      /api/orders
