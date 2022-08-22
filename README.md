@@ -92,7 +92,7 @@ Also make sure that you have jdk 8 installed. After that, just pull the project 
 </pre>
 
 <p>I wasn't able to manage a request when I had the orderItens class related to the two others, that's why the tables won't have any foreign key constraint. 
-So if you how to do it, open a pull request and explain what and why you did the changes. Also I would appreciate feedback for the project and the readme.</p>
+So if you how to do it, open a pull request and explain what and why you did the changes. Also, I would appreciate feedback for the project and the readme.</p>
 
 
 
