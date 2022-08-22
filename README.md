@@ -17,12 +17,15 @@
 
 <br>
 
-<h3>PostgreSQL's configuration</h3>
+<h3>How to Run the project</h3>
 <pre>All you have to do is install postgreSQL 12 on your machine. 
 Make sure postgres is running in his default port "5432".
 Set the username to: <strong>postgres</strong> and the password to: <strong>root</strong>. 
 <em>Do not forget to create a Schema named: "public"</em>
 (All of those configurations can be changed in the application.properties file)
+
+Depending on your IDE, you might have to install a plugin for Lombok
+Here's the link: https://projectlombok.org/download
 
 Also make sure that you have jdk 8 installed. After that, just pull the project and run it.</pre>
 
