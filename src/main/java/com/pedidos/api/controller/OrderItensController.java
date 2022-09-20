@@ -65,5 +65,5 @@ public class OrderItensController {
 	public ResponseEntity<List<OrderItens>> CloseOrder(@PathVariable UUID idOrder, @RequestBody Order order){
 		List<OrderItens> orderItens = orderItensService.closeOrder(idOrder, order);
 		return ResponseEntity.ok().body(orderItens);
-	}	//nas pesquisas que eu fiz não consegui encontrar um exemplo de como fazer o exemplo de retorno do teste
+	}	
 }
