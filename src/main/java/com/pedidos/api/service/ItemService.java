@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.pedidos.api.exception.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,9 @@ public class ItemService {
 
 	public Item findById(UUID id) {
 		Optional<Item> item = itemRepository.findById(id);
-		return item.orElse(null);
+
+		return item.orElseThrow(() -> new ItemNotFoundException("Item não encontrado"));
+
 	}
 
 	public Item update(UUID id, Item item) {
