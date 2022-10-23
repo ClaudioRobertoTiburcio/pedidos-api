@@ -25,7 +25,6 @@ public class ItemService {
 
 	public Item findById(UUID id) {
 		Optional<Item> item = itemRepository.findById(id);
-
 		return item.orElseThrow(() -> new ItemNotFoundException("Item não encontrado"));
 
 	}
@@ -40,7 +39,12 @@ public class ItemService {
 
 
 	public void delete(UUID id) {
-		itemRepository.deleteById(id);
+		try{
+			itemRepository.deleteById(findById(id).getId());
+		}catch (Exception e) {
+			throw new ItemNotFoundException("Item não existe!");
+		}
+
 	}
 
 	public List<Item> findAll() {

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.pedidos.api.exception.OrderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,12 @@ public class OrderService {
 	}
 
 	public Order findById(UUID id) {
-		Optional<Order> order = orderRepository.findById(id);
-		return order.orElse(null);
+		Optional<Order> orderOpt = orderRepository.findById(id);
+
+		return orderOpt.orElseThrow(() -> {
+			throw new OrderNotFoundException("Ordem não encontrada");
+		});
+
 	}
 
 	public Order update(UUID id, Order order) {
@@ -37,7 +42,11 @@ public class OrderService {
 	}
 
 	public void delete(UUID id) {
-		orderRepository.deleteById(id);
+		try{
+			orderRepository.deleteById(id);
+		} catch (Exception e){
+			throw new OrderNotFoundException("Ordem não encontrada");
+		}
 	}
 
 	public List<Order> findAll() {

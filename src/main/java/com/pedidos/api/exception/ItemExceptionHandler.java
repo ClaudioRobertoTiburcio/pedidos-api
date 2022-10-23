@@ -2,13 +2,14 @@ package com.pedidos.api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.Instant;
 @RestControllerAdvice
-public class ExceptionHandler {
+public class ItemExceptionHandler {
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(ItemNotFoundException.class)
+    @ExceptionHandler(ItemNotFoundException.class)
     public ResponseEntity<StandardError> itemNotFoundExceptionHandler (ItemNotFoundException erro){
         StandardError error = new StandardError(
                 Instant.now(),
